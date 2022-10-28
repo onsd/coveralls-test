@@ -12,5 +12,6 @@ if ENV['CI'] == 'true'
 end
 
 SimpleCov.start do
+  SimpleCov.root('../')
   enable_coverage :branch
 end
