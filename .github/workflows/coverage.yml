@@ -23,4 +23,3 @@ jobs:
           flag-name: "ruby"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: "./ruby/coverage/lcov.info"
-          # parallel: true
