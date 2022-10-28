@@ -1,7 +1,7 @@
 class ClassOne
 
-  def self.covered
-    "covered"
+  def self.covered(flag)
+    flag ?  "covered with flag": "covered without flag"
   end
 
   def self.uncovered

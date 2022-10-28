@@ -5,7 +5,7 @@ describe ClassOne do
 
   describe "covered" do
     it "returns 'covered'" do
-      expect(ClassOne.covered).to eql("covered")
+      expect(ClassOne.covered(true)).to eql("covered with flag")
     end
   end
 
