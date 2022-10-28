@@ -1,0 +1,26 @@
+name: coverage
+
+on: push
+
+jobs:
+  coverage-ruby:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 3.0
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+      - name: Build and test with rspec
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec rspec
+        working-directory: ruby
+      - name: Coveralls GitHub Action  # https://github.com/marketplace/actions/coveralls-github-action
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          flag-name: "ruby"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: "./ruby/coverage/lcov.info"
+          # parallel: true
